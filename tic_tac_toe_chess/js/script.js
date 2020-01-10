@@ -1,5 +1,5 @@
-let userOneScore = 0;
-let usertwoScore = 0;
+let playerOneScore = 0;
+let playerTwoScore = 0;
 let turns = 0;
 let playerOne = '♙';
 let playerTwo = '♟';
@@ -19,6 +19,9 @@ const victorySquares = [
 
 //update board on clicks
 const squareClicked = document.querySelector('.board');
+const pOneScore = document.querySelector('.scoreOne');
+const pTwoScore = document.querySelector('.scoreTwo');
+let clearSpot = document.querySelectorAll('.square');
 
 squareClicked.addEventListener('click', updateClick);
 
@@ -28,14 +31,21 @@ function updateClick(evt) {
 		clickedSquare.innerText = playerOne;
 		clickedSquare.style.pointerEvents = 'none';
 		playerOneArray.push(clickedSquare.id);
-		checkWinner(playerOneArray);
+		if (checkWinner(playerOneArray) === 1) {
+			playerOneScore++;
+			pOneScore.innerText = playerOneScore;
+			resetBoard();
+		}
 		turns++;
 	} else if (turns % 2 === 1) {
 		clickedSquare.innerText = playerTwo;
 		clickedSquare.style.pointerEvents = 'none';
 		playerTwoArray.push(clickedSquare.id);
-		checkWinner(playerTwoArray);
-
+		if (checkWinner(playerTwoArray) === 1) {
+			playerTwoScore++;
+			pTwoScore.innerText = playerTwoScore;
+			resetBoard();
+		}
 		turns++;
 	}
 }
@@ -55,5 +65,25 @@ function checkWinner(playerArr) {
 		}
 	}
 	if (win > 0) {
+		return 1;
+	}
+}
+
+// reset the board
+
+function resetBoard() {
+	turns = 0;
+	playerOneArray = [];
+	playerTwoArray = [];
+	for (let y = 1; y < 10; y++) {
+		squareClicked.innerHTML = `<div class="square" id="square_1"></div>
+			<div class="square" id="square_2"></div>
+			<div class="square" id="square_3"></div>
+			<div class="square" id="square_4"></div>
+			<div class="square" id="square_5"></div>
+			<div class="square" id="square_6"></div>
+			<div class="square" id="square_7"></div>
+			<div class="square" id="square_8"></div>
+			<div class="square" id="square_9"></div>`;
 	}
 }
