@@ -6,5 +6,12 @@
 
 Chess is quite an enjoyable and strategic game for many and so is tic tic toe. So I thought it would be a great idea to combine the two together for a less brain straining game while still allowing you to see your favorite chess pieces.
 
-#Features
+## Features
+
 It contains bronze and silver functionality
+
+## Resourses and Support
+
+I used w3schools and stackoverflow as my reasourses for this project.
+
+I had great amounts of help from Rixio Barrios, Sage Kearney, Qusai Fares, and Dan Fruth! Thank you!
