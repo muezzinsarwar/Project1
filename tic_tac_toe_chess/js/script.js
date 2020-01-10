@@ -48,7 +48,6 @@ function updateClick(evt) {
 			resetBoard();
 		}
 	}
-	console.log(turns);
 	if (turns >= 9) {
 		resetBoard();
 	}
