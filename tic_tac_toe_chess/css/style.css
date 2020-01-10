@@ -1,5 +1,7 @@
 body {
 	text-align: center;
+	background-color: #ffd09a;
+	font-family: 'Cormorant SC', serif;
 }
 .board {
 	display: grid;
@@ -12,7 +14,6 @@ body {
 	justify-items: center;
 	align-items: center;
 	font-size: 50px;
-	border: 1px solid;
 	cursor: pointer;
 }
 #square_1 {
@@ -50,4 +51,37 @@ body {
 #square_9 {
 	grid-column: 3;
 	grid-row: 3;
+}
+#square_2,
+#square_4,
+#square_6,
+#square_8 {
+	background: #b37a00;
+}
+#square_1,
+#square_3,
+#square_5,
+#square_7,
+#square_9 {
+	background: #dddddd;
+}
+#square_1,
+#square_2,
+#square_3 {
+	border-top: 5px #664600 solid;
+}
+#square_1,
+#square_4,
+#square_7 {
+	border-left: 5px #a06d00 solid;
+}
+#square_3,
+#square_6,
+#square_9 {
+	border-right: 5px #a06d00 solid;
+}
+#square_7,
+#square_8,
+#square_9 {
+	border-bottom: 5px #664600 solid;
 }
