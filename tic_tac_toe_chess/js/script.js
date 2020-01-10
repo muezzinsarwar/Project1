@@ -31,22 +31,26 @@ function updateClick(evt) {
 		clickedSquare.innerText = playerOne;
 		clickedSquare.style.pointerEvents = 'none';
 		playerOneArray.push(clickedSquare.id);
+		turns++;
 		if (checkWinner(playerOneArray) === 1) {
 			playerOneScore++;
 			pOneScore.innerText = playerOneScore;
 			resetBoard();
 		}
-		turns++;
 	} else if (turns % 2 === 1) {
 		clickedSquare.innerText = playerTwo;
 		clickedSquare.style.pointerEvents = 'none';
 		playerTwoArray.push(clickedSquare.id);
+		turns++;
 		if (checkWinner(playerTwoArray) === 1) {
 			playerTwoScore++;
 			pTwoScore.innerText = playerTwoScore;
 			resetBoard();
 		}
-		turns++;
+	}
+	console.log(turns);
+	if (turns >= 9) {
+		resetBoard();
 	}
 }
 
@@ -75,8 +79,7 @@ function resetBoard() {
 	turns = 0;
 	playerOneArray = [];
 	playerTwoArray = [];
-	for (let y = 1; y < 10; y++) {
-		squareClicked.innerHTML = `<div class="square" id="square_1"></div>
+	squareClicked.innerHTML = `<div class="square" id="square_1"></div>
 			<div class="square" id="square_2"></div>
 			<div class="square" id="square_3"></div>
 			<div class="square" id="square_4"></div>
@@ -85,5 +88,4 @@ function resetBoard() {
 			<div class="square" id="square_7"></div>
 			<div class="square" id="square_8"></div>
 			<div class="square" id="square_9"></div>`;
-	}
 }
